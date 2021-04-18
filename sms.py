@@ -10,7 +10,7 @@ from Provider import Provider
 # args
 
 parser = argparse.ArgumentParser()parser.add_argument('target', metavar='TARGET', type=lambda value: (_ for _ in ()).throw(argparse.ArgumentTypeError(f'{value} is an invalid mobile number')) if len(value) != 10 else value,
-                    help='Target mobile number without country code')
+                    help='Целевой номер мобильного телефона без кода страны')
 parser.add_argument('--sms', '-S', type=int,
                     help='Number of sms to target (default: 20)', default=20)
 parser.add_argument('--country', '-c', type=int,
@@ -71,7 +71,7 @@ def bomber(p):
                 '{:12}: error'.format(p.config['name']))
     not args.verbose and not args.verify and print(
         f'Bombing : {success+fails}/{no_of_sms} | Success: {success} | Failed: {fails}', end='\r')
-
+ 
 
 # threadsssss
 start = time.time()
